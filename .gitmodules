@@ -1,0 +1,3 @@
+[submodule "maven-build-cache-extension/maven"]
+	path = maven-build-cache-extension/maven
+	url = https://github.com/apache/maven.git
