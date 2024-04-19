@@ -21,7 +21,7 @@ read
 
 pushd shiro
 
-cp ../extensions.xml ./.mvn/
+cp ../demo-1-resources/extensions.xml ./.mvn/
 
 mvn3 --file pom.xml -Dotel.traces.exporter=otlp verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
 
