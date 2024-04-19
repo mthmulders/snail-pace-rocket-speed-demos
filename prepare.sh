@@ -3,6 +3,11 @@ set -euo pipefail
 
 # TODO Somehow ensure we're on Java 21
 
+# Delete cache
+if [ -e "$HOME/.m2/build-cache/v1/org.apache.shiro" ]; then
+  rm -rf "$HOME/.m2/build-cache/v1/org.apache.shiro"*
+fi
+
 # Pull the Docker container for visualising the build
 docker pull jaegertracing/all-in-one:1.54
 
