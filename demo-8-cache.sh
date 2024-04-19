@@ -18,4 +18,10 @@ read var
 
 mvn3 --file pom.xml verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
 
+echo "Now edit the file ./shiro/web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java"
+echo "e.g. Timzone 'GMT' to 'UTC'"
+read var
+
+mvn3 --file pom.xml verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
+
 popd
