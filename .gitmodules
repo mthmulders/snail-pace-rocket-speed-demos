@@ -1,3 +1,3 @@
 [submodule "shiro"]
 	path = shiro
-	url = git@github.com:apache/shiro.git
+	url = https://github.com/apache/shiro.git
