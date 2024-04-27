@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -euox pipefail
+IFS=$'\n\t'
+
+. ./includes/setup.inc.sh
 
 docker run --rm --name jaeger \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -19,9 +22,9 @@ docker run --rm --name jaeger \
 echo Navigate to http://localhost:16686/
 read
 
-pushd shiro
+cp demo-1-resources/extensions.xml shiro/.mvn/
 
-cp ../demo-1-resources/extensions.xml ./.mvn/
+pushd shiro
 
 mvn3 --file pom.xml -Dotel.traces.exporter=otlp verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
 
