@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-set -xeuo pipefail
 IFS=$'\n\t'
 
 . ./includes/setup.inc.sh
+
+set -euox pipefail
 
 cp ./demo-8-resources/extensions.xml shiro/.mvn/
 
