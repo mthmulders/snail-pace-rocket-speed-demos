@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-set -euox pipefail
 IFS=$'\n\t'
 
 . ./includes/setup.inc.sh
+
+set -euox pipefail
 
 docker run --rm --name jaeger \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
