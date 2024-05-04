@@ -39,6 +39,7 @@ rm ./crypto/core/src/test/groovy/org/apache/shiro/crypto/FailingTest.java
 
 echo "And follow Maven's instruction"
 echo "Note: no need to repeat the project list or mention where to resume the build!"
+read
 
 mvn4 test -r
 
