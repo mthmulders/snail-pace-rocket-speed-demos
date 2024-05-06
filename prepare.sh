@@ -9,7 +9,7 @@ if [ -e "$HOME/.m2/build-cache/v1/org.apache.shiro" ]; then
 fi
 
 # Pull the Docker container for visualising the build
-docker pull jaegertracing/all-in-one:1.54
+docker pull docker.io/jaegertracing/all-in-one:1.54
 
 # Fetch the Shiro repository
 git submodule init

@@ -4,6 +4,11 @@ This repository contains all the demo's for "Accelerating Maven Builds: From Sna
 ## Prerequisites
 
 * You need Java 21
+* You need Maven 3.9.x installed
+* For some demos you also need a [recent Maven 4 build](https://maven.apache.org/download.cgi#alpha-4-x-release). Some convenience options:
+    * Through a [Homebrew tap](https://github.com/mthmulders/homebrew-maven-snapshot/)
+    * Through [Chocolatey](https://community.chocolatey.org/packages/maven-snapshot)
+    * Through [Scoop](https://github.com/ScoopInstaller/Versions/pull/1682)
 
 ## Preparations
 
