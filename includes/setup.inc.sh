@@ -26,3 +26,23 @@ if type brew &>/dev/null; then
     }
   fi
 fi
+
+# sdkman will overwrite brew, this is intended.
+if type sdk &>/dev/null; then
+  sdkdir="${SDKMAN_DIR:-$HOME/.sdkman}"
+
+  mvn4dir="$(find "$sdkdir/candidates/maven" -type d -name "4*" -prune)"
+  if [ -f "$mvn4dir/bin/mvn" ]; then
+    function mvn4() {
+      "$mvn4dir/bin/mvn" "$@"
+    }
+  fi
+
+  mvn3dir="$(find "$sdkdir/candidates/maven" -type d -name "3.9*" -prune)"
+  if [ -f "$mvn3dir/bin/mvn" ]; then
+    function mvn3() {
+      "$mvn3dir/bin/mvn" "$@"
+    }
+  fi
+fi
+
