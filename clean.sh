@@ -5,4 +5,6 @@ set -uo pipefail
 rm shiro/.mvn/extensions.xml
 rm shiro/crypto/core/src/test/groovy/org/apache/shiro/crypto/FailingTest.java
 
+rm -Rf ~/.m2/build-cache/v1/org.apache.shiro*
+
 docker stop jaeger
