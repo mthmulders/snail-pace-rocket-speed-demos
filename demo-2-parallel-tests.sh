@@ -30,8 +30,12 @@ done
 echo ""
 echo "now fix a not-threadsafe test"
 echo ""
+
 perl -0777 -i.bak -pe 's/\nclass DefaultPasswordServiceTest/\n\@org.junit.jupiter.api.parallel.Execution(org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD)\nclass DefaultPasswordServiceTest/igs' "./core/src/test/groovy/org/apache/shiro/authc/credential/DefaultPasswordServiceTest.groovy"
+perl -0777 -i.bak -pe 's/\npublic class JDBCRealmTest/\n\@org.junit.jupiter.api.parallel.Execution(org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD)\npublic class JDBCRealmTest/igs' "./core/src/test/java/org/apache/shiro/realm/jdbc/JDBCRealmTest.java"
+
 rm "./core/src/test/groovy/org/apache/shiro/authc/credential/DefaultPasswordServiceTest.groovy.bak"
+rm "./core/src/test/java/org/apache/shiro/realm/jdbc/JDBCRealmTest.java.bak"
 
 
 echo ""
