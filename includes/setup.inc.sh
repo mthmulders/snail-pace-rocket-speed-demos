@@ -28,10 +28,9 @@ if type brew &>/dev/null; then
 fi
 
 # sdkman will overwrite brew, this is intended.
-if type sdk &>/dev/null; then
-  sdkdir="${SDKMAN_DIR:-$HOME/.sdkman}"
-
-  mvn4dir="$(find "$sdkdir/candidates/maven" -type d -name "4*" -prune)"
+sdkdir="${SDKMAN_DIR:-$HOME/.sdkman}"
+if [[ -n "${sdkdir}" ]]; then
+  mvn4dir="$(find "$sdkdir/candidates/maven" -type d -name "4*" -prune | head -n 1)"
   if [ -f "$mvn4dir/bin/mvn" ]; then
     __debug Found Maven 4 at $mvn4dir/bin/mvn and it is executable: $($mvn4dir/bin/mvn --version | head -n 1)
     function mvn4() {
@@ -39,7 +38,7 @@ if type sdk &>/dev/null; then
     }
   fi
 
-  mvn3dir="$(find "$sdkdir/candidates/maven" -type d -name "3.9*" -prune)"
+  mvn3dir="$(find "$sdkdir/candidates/maven" -type d -name "3.9*" -prune | head -n 1)"
   if [ -f "$mvn3dir/bin/mvn" ]; then
     __debug Found Maven 3 at $mvn3dir/bin/mvn and it is executable: $($mvn3dir/bin/mvn --version | head -n 1)
     function mvn3() {
@@ -60,3 +59,4 @@ else
     mvnd "$@"
   }
 fi
+
