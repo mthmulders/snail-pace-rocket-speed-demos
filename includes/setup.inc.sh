@@ -48,3 +48,15 @@ if type sdk &>/dev/null; then
   fi
 fi
 
+
+# See if MVND3_EXEC environment variable is defined and a file exists
+if [ -f "$MVND3_EXEC" ]; then
+  function mvnd3() {
+    $MVND3_EXEC "$@"
+  }
+else
+  # fallback, assume mvnd is on the PATH
+  function mvnd3() {
+    mvnd "$@"
+  }
+fi

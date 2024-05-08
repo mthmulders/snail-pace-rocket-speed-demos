@@ -12,17 +12,27 @@ pushd shiro
 echo "Press enter for a first run"
 read var
 
-mvn3 --file pom.xml verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
+# need to use at least package!
+mvnd3 --file pom.xml package --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
 
+echo ""
 echo "Press enter for a new run"
+echo ""
 read var
 
-mvn3 --file pom.xml verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
+mvnd3 --file pom.xml package --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
 
+echo ""
+read var
+
+echo ""
 echo "Now edit the file ./shiro/web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java"
-echo "e.g. Timzone 'GMT' to 'UTC'"
+echo ""
+perl -i.bak -pe 's,null/empty,null or empty,g' "./web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java"
+rm -f "./web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java.bak"
+echo ""
 read var
 
-mvn3 --file pom.xml verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
+mvnd3 --file pom.xml package --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
 
 popd
