@@ -13,7 +13,7 @@ docker pull docker.io/jaegertracing/all-in-one:1.54
 
 # Fetch the Shiro repository
 git submodule init
-git submodule update
+git submodule update --recursive
 
 # Do a one-time build so that we have (most) dependencies and plugins downloaded
 pushd shiro
