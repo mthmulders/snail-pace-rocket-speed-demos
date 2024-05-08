@@ -9,6 +9,7 @@ This repository contains all the demo's for "Accelerating Maven Builds: From Sna
     * Through a [Homebrew tap](https://github.com/mthmulders/homebrew-maven-snapshot/)
     * Through [Chocolatey](https://community.chocolatey.org/packages/maven-snapshot)
     * Through [Scoop](https://github.com/ScoopInstaller/Versions/pull/1682)
+* For some demos you also need a [Maven Daemon with Maven 3](https://github.com/apache/maven-mvnd/releases). Point the scripts to its main executable by defining a variable `MVND3_EXEC` - or add the `mvnd` executable to your `PATH`.
 
 ## Preparations
 
