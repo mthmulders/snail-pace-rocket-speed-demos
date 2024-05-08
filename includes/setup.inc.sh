@@ -48,3 +48,10 @@ if type sdk &>/dev/null; then
   fi
 fi
 
+
+# fallback
+if [[ "$(type -t mvnd3)" != "function" ]]; then
+  function mvnd3() {
+    mvnd "$@"
+  }
+fi
