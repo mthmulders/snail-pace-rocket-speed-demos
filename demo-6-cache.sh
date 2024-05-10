@@ -5,7 +5,7 @@ IFS=$'\n\t'
 
 set -euox pipefail
 
-cp ./demo-8-resources/extensions.xml shiro/.mvn/
+cp ./demo-6-resources/extensions.xml shiro/.mvn/
 
 pushd shiro
 
