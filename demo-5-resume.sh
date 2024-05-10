@@ -6,7 +6,7 @@ IFS=$'\n\t'
 set -euox pipefail
 
 # Shiro Crypto Core is one of the first modules in the build and depends on Shiro Lang.
-cp  ./demo-99-resources/FailingTest.java ./shiro/crypto/core/src/test/groovy/org/apache/shiro/crypto/
+cp  ./demo-5-resources/FailingTest.java ./shiro/crypto/core/src/test/groovy/org/apache/shiro/crypto/
 
 pushd shiro
 
@@ -26,7 +26,7 @@ popd
 echo Repeat with Maven 4
 read
 
-cp  ./demo-99-resources/FailingTest.java ./shiro/crypto/core/src/test/groovy/org/apache/shiro/crypto/
+cp  ./demo-5-resources/FailingTest.java ./shiro/crypto/core/src/test/groovy/org/apache/shiro/crypto/
 
 pushd shiro
 
