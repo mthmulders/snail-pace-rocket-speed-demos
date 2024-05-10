@@ -24,7 +24,7 @@ echo ""
 # "config/ogdl"
 for moddir in "lang" "crypto/core" "crypto/hash" "crypto/support/hashes/argon2" "crypto/support/hashes/bcrypt" "event" "cache" "config/core" "core"; do
   mkdir -p "$moddir/src/test/resources" || true
-  cp ../junit-platform.properties "$moddir/src/test/resources/" || true
+  cp ../demo-2-resources/junit-platform.properties "$moddir/src/test/resources/" || true
 done
 
 echo ""
