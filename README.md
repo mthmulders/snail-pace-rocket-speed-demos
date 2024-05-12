@@ -15,6 +15,7 @@ This repository contains all the demo's for "Accelerating Maven Builds: From Sna
 
 Run `./prepare.sh` to 
 - download all the libraries and plugins and Docker containers used by the demo project.
+- update the Shiro submodule.
 
 ## Cleaning up in between demos
 
