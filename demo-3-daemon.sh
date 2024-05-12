@@ -5,6 +5,8 @@ IFS=$'\n\t'
 
 set -euox pipefail
 
+cp demo-3-resources/extensions.xml shiro/.mvn/
+
 pushd shiro
 
 echo 
@@ -17,7 +19,7 @@ echo
 echo Perform a build using regular Maven 3
 echo 
 read 
-mvn3 verify -pl :shiro-core -am
+mvn3 verify -pl :shiro-core -am -Dotel.traces.exporter=otlp
 
 echo 
 echo Clean up earlier builds
@@ -29,4 +31,4 @@ echo
 echo Perform a build using Maven Daemon 3
 echo 
 read 
-mvnd3 verify -pl :shiro-core -am
+mvnd3 verify -pl :shiro-core -am -Dotel.traces.exporter=otlp

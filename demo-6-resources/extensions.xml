@@ -5,4 +5,9 @@
     <artifactId>maven-build-cache-extension</artifactId>
     <version>1.1.0</version>
   </extension>
+  <extension>
+      <groupId>io.opentelemetry.contrib</groupId>
+      <artifactId>opentelemetry-maven-extension</artifactId>
+      <version>1.33.0-alpha</version>
+  </extension>
 </extensions>
