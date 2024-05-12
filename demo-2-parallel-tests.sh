@@ -15,7 +15,7 @@ echo ""
 echo "Executing default build in sequence!"
 echo ""
 read var
-mvn3 verify -pl :shiro-core -am || true
+mvn3 verify -pl :shiro-core -am -Dotel.traces.exporter=otlp || true
 
 read var
 
@@ -44,7 +44,7 @@ echo ""
 echo "Press enter to execute maven again"
 echo ""
 read var
-mvn3 verify -pl :shiro-core -am || true
+mvn3 verify -pl :shiro-core -am -Dotel.traces.exporter=otlp || true
 
 popd
 
