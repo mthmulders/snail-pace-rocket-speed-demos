@@ -10,5 +10,3 @@ find shiro/ -name "junit-platform.properties" -exec rm '{}' +
 (cd shiro && git clean -fxd && git reset --hard HEAD)
 
 rm -Rf ~/.m2/build-cache/v1/org.apache.shiro*
-
-docker stop jaeger || true
