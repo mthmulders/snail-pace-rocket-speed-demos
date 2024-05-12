@@ -5,6 +5,8 @@ IFS=$'\n\t'
 
 set -euox pipefail
 
+cp demo-2-resources/extensions.xml shiro/.mvn/
+
 pushd shiro
 
 mvn3 clean -q 
