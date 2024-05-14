@@ -31,4 +31,8 @@ echo
 echo Perform a build using Maven Daemon 3
 echo 
 read 
-mvnd3 verify -pl :shiro-core -am -Dotel.traces.exporter=otlp
+# otel doesnt work nicely with mvnd
+# -Dotel.traces.exporter=otlp
+export OTEL_METRICS_EXPORTER=none
+mvnd3 verify -pl :shiro-core -am
+
