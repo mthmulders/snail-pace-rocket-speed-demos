@@ -13,7 +13,7 @@ pushd shiro
 mvn3 test -pl :shiro-core -am || true
 
 echo "Let's fix the test!"
-read
+read var
 
 rm ./crypto/core/src/test/groovy/org/apache/shiro/crypto/FailingTest.java
 
@@ -24,7 +24,7 @@ mvn3 test -pl :shiro-core -am -rf :shiro-crypto-core || true
 popd
 
 echo Repeat with Maven 4
-read
+read var
 
 cp  ./demo-5-resources/FailingTest.java ./shiro/crypto/core/src/test/groovy/org/apache/shiro/crypto/
 
@@ -33,7 +33,7 @@ pushd shiro
 mvn4 test -pl :shiro-core -am || true
 
 echo "Let's fix the test!"
-read
+read var
 
 rm ./crypto/core/src/test/groovy/org/apache/shiro/crypto/FailingTest.java
 
