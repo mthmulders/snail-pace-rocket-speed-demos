@@ -18,6 +18,9 @@ read var
 rm ./crypto/core/src/test/groovy/org/apache/shiro/crypto/FailingTest.java
 
 echo "And follow Maven's instruction"
+echo "mvn3 test -pl :shiro-core -am -rf :shiro-crypto-core"
+
+read var
 
 mvn3 test -pl :shiro-core -am -rf :shiro-crypto-core || true
 
@@ -39,7 +42,9 @@ rm ./crypto/core/src/test/groovy/org/apache/shiro/crypto/FailingTest.java
 
 echo "And follow Maven's instruction"
 echo "Note: no need to repeat the project list or mention where to resume the build!"
-read
+echo "mvn4 test -r"
+
+read var
 
 mvn4 test -r
 
