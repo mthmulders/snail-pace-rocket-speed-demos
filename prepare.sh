@@ -22,7 +22,7 @@ docker run --rm --name jaeger \
   -p 14269:14269 \
   -p 9411:9411 \
   -d \
-  jaegertracing/all-in-one:1.57
+  docker.io/jaegertracing/all-in-one:1.57
 
 # Fetch the Shiro repository
 git submodule init
