@@ -13,14 +13,14 @@ echo "Press enter for a first run"
 read var
 
 # need to use at least package!
-mvnd3 --file pom.xml package --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee' -Dotel.traces.exporter=otlp
+mvnd3 --file pom.xml package --projects :shiro-core --also-make -Dotel.traces.exporter=otlp
 
 echo ""
 echo "Press enter for a new run"
 echo ""
 read var
 
-mvnd3 --file pom.xml package --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee' -Dotel.traces.exporter=otlp
+mvnd3 --file pom.xml package --projects :shiro-core --also-make -Dotel.traces.exporter=otlp
 
 echo ""
 read var
@@ -33,6 +33,6 @@ rm -f "./web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java.bak"
 echo ""
 read var
 
-mvnd3 --file pom.xml package --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee' -Dotel.traces.exporter=otlp
+mvnd3 --file pom.xml package --projects :shiro-core --also-make -Dotel.traces.exporter=otlp
 
 popd

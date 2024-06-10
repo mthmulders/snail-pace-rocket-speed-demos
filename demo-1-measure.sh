@@ -12,7 +12,7 @@ cp demo-1-resources/extensions.xml shiro/.mvn/
 
 pushd shiro
 
-mvn3 --file pom.xml -Dotel.traces.exporter=otlp verify --projects '!org.apache.shiro.integrationtests:shiro-its-jakarta-ee'
+mvn3 --file pom.xml -Dotel.traces.exporter=otlp verify --projects :shiro-core --also-make
 
 rm .mvn/extensions.xml
 
