@@ -12,15 +12,7 @@ pushd shiro
 mvn3 clean -q 
 
 echo ""
-echo "Executing default build in sequence!"
-echo ""
-read var
-mvn3 verify --projects :shiro-core --also-make -Dotel.traces.exporter=otlp || true
-
-read var
-
-echo ""
-echo "Let's execute tests in parallel!"
+echo "Configure parallel tests: classes and methods in parallel"
 echo ""
 # config/ogdl tests are not thread safe
 # "config/ogdl"
@@ -30,7 +22,7 @@ for moddir in "lang" "crypto/core" "crypto/hash" "crypto/support/hashes/argon2" 
 done
 
 echo ""
-echo "now fix a not-threadsafe test"
+echo "Fix non-threadsafe tests"
 echo ""
 
 perl -0777 -i.bak -pe 's/\nclass DefaultPasswordServiceTest/\n\@org.junit.jupiter.api.parallel.Execution(org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD)\nclass DefaultPasswordServiceTest/igs' "./core/src/test/groovy/org/apache/shiro/authc/credential/DefaultPasswordServiceTest.groovy"
@@ -41,7 +33,7 @@ rm "./core/src/test/java/org/apache/shiro/realm/jdbc/JDBCRealmTest.java.bak"
 
 
 echo ""
-echo "Press enter to execute maven again"
+echo "Run Maven"
 echo ""
 read var
 mvn3 verify --projects :shiro-core --also-make -Dotel.traces.exporter=otlp || true
