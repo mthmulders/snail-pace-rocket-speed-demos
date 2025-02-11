@@ -16,4 +16,4 @@ docker run --rm --name jaeger \
   -p 14269:14269 \
   -p 9411:9411 \
   -d \
-  docker.io/jaegertracing/all-in-one:1.57@sha256:8f165334f418ca53691ce358c19b4244226ed35c5d18408c5acf305af2065fb9
+  docker.io/jaegertracing/all-in-one:1.66.0@sha256:9864182b4e01350fcc64631bdba5f4085f87daae9d477a04c25d9cb362e787a9
