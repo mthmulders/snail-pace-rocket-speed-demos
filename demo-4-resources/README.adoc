@@ -1,0 +1,87 @@
+= Demo 4: Feeding the Maven Daemon by architectural restructuring
+
+:toc: macro
+:idprefix:
+:icons: font
+:toclevels: 3
+:toc-title: Table of Contents
+
+The demo repository shows two projects which contain the same classes and tests.
+The tests are not doing anything useful, just waiting for 500 to 1_000ms.
+
+toc::[]
+
+== Introduction
+
+Architectural restructuring is a technique to improve the performance of the Maven Daemon.
+The idea is to split the project into multiple modules, so that the Maven Daemon can build them in parallel.
+While tests are still executed sequentially, the build time is reduced by running the modules (and thus their phases compilation, test, packaging) in parallel.
+
+== App-Simple
+
+This is the starting point.
+This project contains only 3 jar/war modules, and 5 in total:
+
+* root (pom)
+* common (jar)
+* services (jar)
+* web (pom)
+* web/rest (war)
+
+Try executing `mvnd clean` and then `mvnd verify`.
+On my machine, it takes about 15.5s.
+
+== App-More-Modules
+
+The app is then split into more modules: API modules and their implementation per responsibility.
+
+* root (pom)
+* common (pom)
+* common :: lang (jar)
+* common :: value (jar)
+* db (pom)
+* db :: api (jar)
+* db :: jpa (jar)
+* services (pom)
+* services :: api (jar)
+* services :: commandhandler (jar)
+* services :: github (jar)
+* services :: LDAP (jar)
+* services :: mail (jar)
+* services :: user (jar)
+* services :: health (jar)
+* web (pom)
+* web :: rest (jar)
+
+Now, again, execute `mvnd clean` and then `mvnd verify`.
+This only takes about 8.8s.
+
+This effect will be even more noticeable the more services you can extract from your application or library.
+
+== Apps with parallel tests
+
+You can now execute both projects with parallel tests enabled.
+Just execute `mvnd clean` and then `mvnd verify -Pparallel-tests`.
+
+== Test execution results
+
+Using these techniques, my build at work went down from 13 minutes to about 3.5 minutes.
+
+For this example, the total outcomes are as follows:
+
+|===
+h|App |Sequential Tests|Parallel Tests
+
+h|Simple
+m|{set:cellbgcolor:red}14.8s
+m|{set:cellbgcolor:}{nbsp}4.5s
+
+h|More-Modules
+m|{nbsp}7.5s
+m|{set:cellbgcolor:green}{nbsp}4.3s
+|===
+
+The moment you have at least a few non-parallelizable tests (which is common), you will start to see a big gain.
+
+
+
