@@ -8,7 +8,6 @@ class StringUtilsTest {
 
     @Test
     void isNullOrEmpty() throws InterruptedException {
-        Thread.sleep(250L);
         assertTrue(StringUtils.isNullOrEmpty(null));
         assertTrue(StringUtils.isNullOrEmpty(""));
         assertFalse(StringUtils.isNullOrEmpty("test"));

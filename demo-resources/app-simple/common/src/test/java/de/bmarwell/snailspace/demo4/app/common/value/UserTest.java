@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class UserTest {
 
     @Test
-    void userTest() throws InterruptedException {
+    void userTest() {
         // given
         final String userId = "user-id";
         final String name = "name";
@@ -17,7 +17,6 @@ public class UserTest {
         final User user = new User(new UserId(userId), name);
 
         // then
-        Thread.sleep(1_000L);
         assertAll(
                 () -> assertEquals(userId, user.userId().value()),
                 () -> assertEquals(name, user.name())
