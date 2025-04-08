@@ -15,7 +15,6 @@ public class UserIdTest {
         final UserId id = new UserId(userId);
 
         // then
-        Thread.sleep(1_000L);
         Assertions.assertThat(id).isEqualTo(new UserId(userId));
     }
 }
