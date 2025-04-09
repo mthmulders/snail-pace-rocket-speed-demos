@@ -18,7 +18,8 @@ java_spec_version="$(java -XshowSettings:vm -XshowSettings:properties  --version
 java_spec_version="$(echo "$java_spec_version" | cut -f 2 -d "=" | tr -d '[:space:]')"
 
 if [ "${java_spec_version}" -lt 21 ]; then
-  >&2 echo "[ERROR] you need java 21, but you are using ${java_spec_version}"
+  >&2 echo "[ERROR] You need Java 21, but you are using ${java_spec_version}."
+  >&2 echo "[ERROR] Please install and use a newer version."
   exit 1
 fi
 

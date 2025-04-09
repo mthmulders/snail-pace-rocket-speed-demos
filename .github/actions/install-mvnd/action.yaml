@@ -16,14 +16,14 @@
 #
 
 name: 'install-mvnd'
-description: 'Install the maven daemon'
+description: 'Install the Maven Daemon'
 inputs:
   version:
-    description: 'The version of the maven daemon to install'
+    description: 'The version of the Maven Daemon to install'
     required: true
     default: '1.0-m6'
   distribution:
-    description: 'The maven distribution to use'
+    description: 'The Maven distribution to use'
     required: true
     default: 'm39-linux-amd64'
   dry-run:

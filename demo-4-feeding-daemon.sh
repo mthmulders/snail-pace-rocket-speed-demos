@@ -17,8 +17,6 @@ echo
 echo "Perform a build using Maven Daemon 3 (app with 3 modules)"
 echo 
 read 
-# otel doesnt work nicely with mvnd
-# -Dotel.traces.exporter=otlp
 export OTEL_METRICS_EXPORTER=none
 mvnd3 verify
 
@@ -37,6 +35,5 @@ echo "Perform a build using Maven Daemon 3 (app with 16+ modules)"
 echo 
 read 
 # otel doesnt work nicely with mvnd
-# -Dotel.traces.exporter=otlp
 export OTEL_METRICS_EXPORTER=none
 mvnd3 verify

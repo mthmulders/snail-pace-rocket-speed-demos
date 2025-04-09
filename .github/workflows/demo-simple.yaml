@@ -2,8 +2,10 @@ name: Build simple app
 
 on:
   workflow_dispatch: { }
-  push: { }
-  pull_request: { }
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 # Minimum permissions required by skip-duplicate-actions
 permissions:
