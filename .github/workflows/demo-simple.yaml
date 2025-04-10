@@ -30,6 +30,6 @@ jobs:
 
       - name: Build application with Maven
         shell: bash
+        working-directory: ./demo-resources/app-simple
         run: |
-          cd demo-resources/app-simple || exit 1
           ${{ steps.install-mvnd.outputs.mvnd-dir }}/mvnd --batch-mode -errors --no-transfer-progress verify
