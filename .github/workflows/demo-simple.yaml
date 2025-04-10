@@ -1,0 +1,35 @@
+name: Build simple app
+
+on:
+  workflow_dispatch: { }
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Minimum permissions required by skip-duplicate-actions
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: semeru
+
+      - id: install-mvnd
+        uses: ./.github/actions/install-mvnd
+
+      - name: Build application with Maven
+        shell: bash
+        working-directory: ./demo-resources/app-simple
+        run: |
+          ${{ steps.install-mvnd.outputs.mvnd-dir }}/mvnd --batch-mode -errors --no-transfer-progress verify
