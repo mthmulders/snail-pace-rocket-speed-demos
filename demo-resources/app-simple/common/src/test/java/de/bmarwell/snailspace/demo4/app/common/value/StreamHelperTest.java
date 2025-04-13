@@ -10,7 +10,6 @@ class StreamHelperTest {
         final StreamHelper sh = new StreamHelper();
 
         // then
-        Thread.sleep(1_000L);
         Assertions.assertThat(sh).isEqualTo(new StreamHelper());
     }
 
