@@ -13,9 +13,33 @@ class GitHubServiceImplTest {
         final GitHubServiceImpl service = new GitHubServiceImpl();
 
         // when
-        final List<String> repositories = service.queryRepositories("mthmulders");
+        final List<String> repositories = service.queryRepositories("someone");
 
         // then
         assertThat(repositories).isEmpty();
+    }
+
+    @Test
+    void find_bmarwell() {
+        final GitHubServiceImpl service = new GitHubServiceImpl();
+
+        // when
+        final List<String> repositories = service.queryRepositories("bmarwell");
+
+        // then
+        Assertions.assertThat(repositories).isNotEmpty();
+        Assertions.assertThat(repositories).contains("snailspace");
+    }
+
+    @Test
+    void find_mthmulders() {
+        final GitHubServiceImpl service = new GitHubServiceImpl();
+
+        // when
+        final List<String> repositories = service.queryRepositories("mthmulders");
+
+        // then
+        Assertions.assertThat(repositories).isNotEmpty();
+        Assertions.assertThat(repositories).contains("snailspace");
     }
 }

@@ -23,7 +23,7 @@ class MailServiceImplTest {
     }
 
     @Test
-    void expect_failure() {
+    void expect_failure_invalid_sender() {
         final MailService service = new MailServiceImpl();
 
         // when
@@ -33,6 +33,19 @@ class MailServiceImplTest {
         // then
         assertThat(mailSendStatus).isNotNull();
         assertThat(mailSendStatus.status()).isEqualTo("invalid sender");
+    }
+
+    @Test
+    void expect_failure_invalid_recipient() {
+        final MailService service = new MailServiceImpl();
+
+        // when
+        final MailSendStatus mailSendStatus = service.sendMail("mail@mthmulders.invalid",
+            "bmarwell_at_apache.invalid", "Test", "Test");
+
+        // then
+        assertThat(mailSendStatus).isNotNull();
+        assertThat(mailSendStatus.status()).isEqualTo("invalid recipient");
     }
 
 }

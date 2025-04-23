@@ -1,8 +1,11 @@
 package de.bmarwell.snailspace.demo4.app.services;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import de.bmarwell.snailspace.demo4.app.common.value.User;
 import de.bmarwell.snailspace.demo4.app.common.value.UserId;
+import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 class JndiLdapServiceTest {
@@ -12,10 +15,37 @@ class JndiLdapServiceTest {
         final JndiLdapService service = new JndiLdapService();
 
         // when
-        final String mthmulders = service.getUser(new UserId("mthmulders"));
+        final Optional<User> user = service.getUser(new UserId("someone"));
 
         // then
-        assertNotNull(mthmulders);
+        assertNotNull(user);
+        assertThat(user).isNotPresent();
+    }
+
+    @Test
+    void test_bmarwell() {
+        final JndiLdapService service = new JndiLdapService();
+
+        // when
+        final Optional<User> user = service.getUser(new UserId("bmarwell"));
+
+        // then
+        assertNotNull(user);
+        assertThat(user).isPresent();
+        assertThat(user.orElseThrow().name()).isEqualTo("Benjamin");
+    }
+
+    @Test
+    void test_mthmulders() {
+        final JndiLdapService service = new JndiLdapService();
+
+        // when
+        final Optional<User> user = service.getUser(new UserId("mthmulders"));
+
+        // then
+        assertNotNull(user);
+        assertThat(user).isPresent();
+        assertThat(user.orElseThrow().name()).isEqualTo("Maarten");
     }
 
 }

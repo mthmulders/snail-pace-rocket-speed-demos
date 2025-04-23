@@ -16,6 +16,10 @@ public class MailServiceImpl implements MailService{
             return new MailSendStatus(new MailId(UUID.randomUUID()), "invalid sender");
         }
 
+        if (!to.contains("@")) {
+            return new MailSendStatus(new MailId(UUID.randomUUID()), "invalid recipient");
+        }
+
         return new MailSendStatus(new MailId(UUID.randomUUID()), "sent");
     }
 }

@@ -12,6 +12,14 @@ public class GitHubServiceImpl implements GitHubService {
             throw new RuntimeException(e);
         }
 
+        if (searchTerm.contains("bmarwell")) {
+            return List.of("bmarwell", "snailspace");
+        }
+
+        if (searchTerm.contains("mthmulders")) {
+            return List.of("mthmulders", "snailspace");
+        }
+
         return List.of();
     }
 }
