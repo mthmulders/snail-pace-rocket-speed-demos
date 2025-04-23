@@ -1,17 +1,47 @@
 package de.bmarwell.snailspace.demo4.app.services.commands;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import de.bmarwell.snailspace.demo4.app.common.value.UserId;
 import org.junit.jupiter.api.Test;
 
 class DeleteUserCommandHandlerTest {
 
     @Test
-    void test() throws InterruptedException {
+    void delete_someone() {
         final DeleteUserCommandHandler service = new DeleteUserCommandHandler();
+        final var command = new DeleteUserCommand(new UserId("test"));
 
-        Thread.sleep(600L);
-        assertNotNull(service);
+        // when
+        final DeleteUserResponse deleteUserResponse = service.execute(command);
+
+        // then
+        assertThat(deleteUserResponse).isNotNull();
+    }
+
+    @Test
+    void delete_mthmulders() {
+        final DeleteUserCommandHandler service = new DeleteUserCommandHandler();
+        final var command = new DeleteUserCommand(new UserId("mthmulders"));
+
+        // when
+        final DeleteUserResponse deleteUserResponse = service.execute(command);
+
+        // then
+        assertThat(deleteUserResponse).isNotNull();
+    }
+
+    @Test
+    void delete_bmarwell() {
+        final DeleteUserCommandHandler service = new DeleteUserCommandHandler();
+        final var command = new DeleteUserCommand(new UserId("bmarwell"));
+
+        // when
+        final DeleteUserResponse deleteUserResponse = service.execute(command);
+
+        // then
+        assertThat(deleteUserResponse).isNotNull();
     }
 
 }

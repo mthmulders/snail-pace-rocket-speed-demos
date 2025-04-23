@@ -9,8 +9,12 @@ public class DeleteUserCommandHandler implements CommandHandler<DeleteUserComman
 
     @Override
     public DeleteUserResponse execute(DeleteUserCommand command) {
-        // TODO: implement
-        throw new UnsupportedOperationException(
-            "not yet implemented: [de.bmarwell.snailspace.demo4.app.services.commands.DeleteUserCommandHandler::execute].");
+        try {
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        return new DeleteUserResponse();
     }
 }

@@ -9,8 +9,12 @@ public class UpdateUserCommandHandler implements CommandHandler<UpdateUserComman
 
     @Override
     public UpdateUserResponse execute(UpdateUserCommand command) {
-        // TODO: implement
-        throw new UnsupportedOperationException(
-            "not yet implemented: [de.bmarwell.snailspace.demo4.app.services.commands.UpdateUserCommandHandler::execute].");
+        try {
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        return new UpdateUserResponse();
     }
 }

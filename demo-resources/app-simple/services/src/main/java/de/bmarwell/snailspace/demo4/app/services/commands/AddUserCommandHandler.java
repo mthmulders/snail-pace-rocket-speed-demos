@@ -9,7 +9,12 @@ public class AddUserCommandHandler implements CommandHandler<AddUserCommand, Add
 
     @Override
     public AddUserResponse execute(AddUserCommand command) {
-        throw new UnsupportedOperationException(
-            "not yet implemented: [de.bmarwell.snailspace.demo4.app.services.commands.AddUserCommandHandler::execute].");
+        try {
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        return new AddUserResponse();
     }
 }
