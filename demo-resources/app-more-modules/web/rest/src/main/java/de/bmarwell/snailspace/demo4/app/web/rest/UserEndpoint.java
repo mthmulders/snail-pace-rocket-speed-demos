@@ -16,8 +16,16 @@ public class UserEndpoint {
 
     @GET
     public Response getUsers() {
+        try {
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         return Response.ok("Users list").build();
     }
 
-
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 }

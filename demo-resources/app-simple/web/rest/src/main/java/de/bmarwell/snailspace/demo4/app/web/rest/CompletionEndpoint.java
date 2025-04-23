@@ -16,7 +16,16 @@ public class CompletionEndpoint {
 
     @GET
     public Response getCompletions() {
-        return Response.ok("Completions list").build();
+        try {
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        return Response.ok(this.gitHubService.queryRepositories("terms")).build();
     }
 
+    public void setGitHubService(GitHubService gitHubService) {
+        this.gitHubService = gitHubService;
+    }
 }
