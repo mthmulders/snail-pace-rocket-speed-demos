@@ -1,16 +1,21 @@
 package de.bmarwell.snailspace.demo4.app.services;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class GitHubServiceImplTest {
 
     @Test
-    void test() throws InterruptedException {
+    void test() {
         final GitHubServiceImpl service = new GitHubServiceImpl();
 
-        Thread.sleep(1_000L);
-        Assertions.assertThat(service).isNotNull();
+        // when
+        final List<String> repositories = service.queryRepositories("mthmulders");
+
+        // then
+        assertThat(repositories).isEmpty();
     }
 
 }

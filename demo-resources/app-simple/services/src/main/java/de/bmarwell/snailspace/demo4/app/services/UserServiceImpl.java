@@ -1,10 +1,11 @@
 package de.bmarwell.snailspace.demo4.app.services;
 
 import de.bmarwell.snailspace.demo4.app.common.value.User;
+import de.bmarwell.snailspace.demo4.app.common.value.UserId;
 
 public class UserServiceImpl implements UserService {
 
-    public User updateUser(String userId, User user) {
+    public User updateUser(UserId userId, User user) {
         try {
             Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
         } catch (InterruptedException e) {

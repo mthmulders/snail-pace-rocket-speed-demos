@@ -1,8 +1,9 @@
 package de.bmarwell.snailspace.demo4.app.services.api;
 
 import de.bmarwell.snailspace.demo4.app.common.value.User;
+import de.bmarwell.snailspace.demo4.app.common.value.UserId;
 
 public interface UserService {
 
-    User updateUser(String userId, User user);
+    User updateUser(UserId userId, User user);
 }

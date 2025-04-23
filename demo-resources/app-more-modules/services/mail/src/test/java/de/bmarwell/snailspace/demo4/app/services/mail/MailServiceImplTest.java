@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Test;
 class MailServiceImplTest {
 
     @Test
-    void test() throws InterruptedException {
+    void test() {
         final MailService service = new MailServiceImpl();
 
-        Thread.sleep(1_000L);
-        Assertions.assertThat(service).isNotNull();
+        // when
+        service.sendMail("mail@mthmulders.invalid", "bmarwell@apache.invalid", "Test", "Test");
+
+        // expect no error
     }
 
 }
