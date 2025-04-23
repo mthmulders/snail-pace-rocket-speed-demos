@@ -5,9 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class UserIdTest {
 
-
     @Test
-    void test_user_id() throws InterruptedException {
+    void test_user_id() {
         // given
         final String userId = "user-id";
 
@@ -15,7 +14,6 @@ public class UserIdTest {
         final UserId id = new UserId(userId);
 
         // then
-        Thread.sleep(1_000L);
         Assertions.assertThat(id).isEqualTo(new UserId(userId));
     }
 }

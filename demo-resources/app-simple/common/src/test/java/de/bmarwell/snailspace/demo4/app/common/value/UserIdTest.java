@@ -5,9 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class UserIdTest {
 
-
     @Test
-    void test_user_id() throws InterruptedException {
+    void test_user_id() {
         // given
         final String userId = "user-id";
 

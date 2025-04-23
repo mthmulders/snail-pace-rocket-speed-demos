@@ -110,6 +110,14 @@
       <artifactId>jakarta.transaction-api</artifactId>
       <scope>provided</scope>
     </dependency>
+
+    <!-- test impl -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+      <version>4.1.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
 </project>

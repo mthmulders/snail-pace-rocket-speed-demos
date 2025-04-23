@@ -1,12 +1,21 @@
 package de.bmarwell.snailspace.demo4.app.services;
 
+import de.bmarwell.snailspace.demo4.app.common.value.MailId;
+import java.util.UUID;
+
 public class MailServiceImpl implements MailService{
 
-    public void sendMail(String from, String to, String subject, String body) {
+    public MailSendStatus sendMail(String from, String to, String subject, String body) {
         try {
             Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        if (!from.contains("@")) {
+            return new MailSendStatus(new MailId(UUID.randomUUID()), "invalid sender");
+        }
+
+        return new MailSendStatus(new MailId(UUID.randomUUID()), "sent");
     }
 }

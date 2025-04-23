@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class StreamHelperTest {
 
     @Test
-    void test_user_id() throws InterruptedException {
+    void test_user_id() {
         final StreamHelper sh = new StreamHelper();
 
         // then
