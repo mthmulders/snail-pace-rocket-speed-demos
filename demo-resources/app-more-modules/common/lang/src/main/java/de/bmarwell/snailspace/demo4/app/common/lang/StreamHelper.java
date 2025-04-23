@@ -8,7 +8,7 @@ public class StreamHelper {
 
     public static void copyTo(InputStream inputStream, OutputStream outputStream) throws IOException {
         try {
-            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout", "100")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -29,7 +29,7 @@ public class StreamHelper {
     @Override
     public boolean equals(Object obj) {
         try {
-            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout", "100")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

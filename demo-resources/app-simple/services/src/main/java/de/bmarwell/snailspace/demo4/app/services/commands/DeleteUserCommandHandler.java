@@ -10,7 +10,7 @@ public class DeleteUserCommandHandler implements CommandHandler<DeleteUserComman
     @Override
     public DeleteUserResponse execute(DeleteUserCommand command) {
         try {
-            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout", "100")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

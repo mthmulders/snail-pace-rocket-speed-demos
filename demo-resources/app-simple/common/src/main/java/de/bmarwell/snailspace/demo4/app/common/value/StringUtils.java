@@ -4,7 +4,7 @@ public class StringUtils {
 
     public static boolean isNullOrEmpty(final String str) {
         try {
-            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout", "100")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

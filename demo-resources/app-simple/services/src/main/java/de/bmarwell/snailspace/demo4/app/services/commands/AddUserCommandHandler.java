@@ -10,7 +10,7 @@ public class AddUserCommandHandler implements CommandHandler<AddUserCommand, Add
     @Override
     public AddUserResponse execute(AddUserCommand command) {
         try {
-            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout", "100")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

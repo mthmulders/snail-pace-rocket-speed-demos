@@ -17,7 +17,7 @@ public class CompletionEndpoint {
     @GET
     public Response getCompletions() {
         try {
-            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout", "100")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

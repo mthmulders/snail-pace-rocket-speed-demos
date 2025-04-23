@@ -9,7 +9,7 @@ public class MailServiceImpl implements MailService {
 
     public MailSendStatus sendMail(String from, String to, String subject, String body) {
         try {
-            Thread.sleep(Long.parseLong(System.getProperty("method.timeout")));
+            Thread.sleep(Long.parseLong(System.getProperty("method.timeout", "100")));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
