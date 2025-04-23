@@ -2,4 +2,5 @@ package de.bmarwell.snailspace.demo4.app.services.api;
 
 public interface MailService {
 
+    void sendMail(String from, String to, String subject, String body);
 }
