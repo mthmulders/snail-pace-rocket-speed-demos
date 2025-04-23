@@ -4,10 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import de.bmarwell.snailspace.demo4.app.services.api.GitHubService;
-import java.util.Collections;
+import de.bmarwell.snailspace.demo4.app.services.GitHubService;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.HealthCheckResponse.Status;
 import org.junit.jupiter.api.Test;
@@ -17,7 +15,7 @@ class MpHealthServiceTest {
     @Test
     void test_down() {
         final GitHubService gitHubService = mock(GitHubService.class);
-        when(gitHubService.queryRepositories("snailspace")).thenReturn(Collections.emptyList());
+        when(gitHubService.queryRepositories("snailspace")).thenReturn(List.of());
         final MpHealthService service = new MpHealthService();
         service.setGitHubService(gitHubService);
 
@@ -44,4 +42,5 @@ class MpHealthServiceTest {
         assertThat(response).isNotNull();
         assertThat(response.getStatus()).isEqualTo(Status.UP);
     }
+
 }

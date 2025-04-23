@@ -1,7 +1,6 @@
 package de.bmarwell.snailspace.demo4.app.services.health;
 
-import de.bmarwell.snailspace.demo4.app.services.api.GitHubService;
-import de.bmarwell.snailspace.demo4.app.services.api.observability.HealthService;
+import de.bmarwell.snailspace.demo4.app.services.GitHubService;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
@@ -29,5 +28,4 @@ public class MpHealthService implements HealthService, HealthCheck {
     public void setGitHubService(GitHubService gitHubService) {
         this.gitHubService = gitHubService;
     }
-
 }

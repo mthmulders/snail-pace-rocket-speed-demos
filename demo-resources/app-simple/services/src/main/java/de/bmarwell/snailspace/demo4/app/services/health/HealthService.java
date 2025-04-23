@@ -1,4 +1,4 @@
-package de.bmarwell.snailspace.demo4.app.services.api.observability;
+package de.bmarwell.snailspace.demo4.app.services.health;
 
 import org.eclipse.microprofile.health.HealthCheck;
 
