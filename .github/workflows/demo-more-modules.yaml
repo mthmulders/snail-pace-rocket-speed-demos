@@ -18,6 +18,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Init submodules
+        run: |
+          git submodule init demo-resources
+          git submodule update --recursive
+
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
