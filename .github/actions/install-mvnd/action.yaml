@@ -37,7 +37,18 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: curl -fsSL -o mvnd.zip https://archive.apache.org/dist/maven/mvnd/${{ inputs.version }}/maven-mvnd-${{ inputs.version }}-${{ inputs.distribution }}.zip
+    - run: |
+        curl \
+          --connect-timeout 5 \
+          --retry 5 \
+          --retry-delay 1 \
+          --retry-max-time 40 \
+          --silent \
+          --show-error \
+          --location \
+          --fail-with-body \
+          --output mvnd.zip \
+          "https://github.com/apache/maven-mvnd/releases/download/${{ inputs.version }}/maven-mvnd-${{ inputs.version }}-${{ inputs.distribution }}.zip"
       if: inputs.dry-run == 'false'
       shell: bash
     - run: curl -fsSL -o mvnd.zip.sha256 https://archive.apache.org/dist/maven/mvnd/${{ inputs.version }}/maven-mvnd-${{ inputs.version }}-${{ inputs.distribution }}.zip.sha256
