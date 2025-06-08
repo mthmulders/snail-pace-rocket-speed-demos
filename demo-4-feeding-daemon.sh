@@ -5,35 +5,16 @@ IFS=$'\n\t'
 
 set -euox pipefail
 
-pushd demo-resources/app-simple
+pushd demo-6-resources/app-more-modules
+# Maven Daemon and the OpenTelemetry extension don't work well together (yet)
+# cp ../../demo-3-resources/extensions.xml .mvn/
 
-echo 
-echo "Clean up earlier builds (app with 3 modules)"
-echo 
-read 
-mvnd3 clean
+echo Clean up earlier builds
+read
+mvn3 clean --quiet
 
-echo 
-echo "Perform a build using Maven Daemon 3 (app with 3 modules)"
-echo 
+echo Perform a build using Maven Daemon
 read 
-export OTEL_METRICS_EXPORTER=none
 mvnd3 verify
 
 popd
-
-pushd demo-resources/app-more-modules
-
-echo 
-echo "Clean up earlier builds (app with 16+ modules)"
-echo 
-read 
-mvnd3 clean
-
-echo 
-echo "Perform a build using Maven Daemon 3 (app with 16+ modules)"
-echo 
-read 
-# otel doesnt work nicely with mvnd
-export OTEL_METRICS_EXPORTER=none
-mvnd3 verify

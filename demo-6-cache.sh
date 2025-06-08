@@ -5,34 +5,25 @@ IFS=$'\n\t'
 
 set -euox pipefail
 
-cp ./demo-6-resources/extensions.xml shiro/.mvn/
+pushd demo-resources/app-simple
+cp ../../demo-6-resources/extensions.xml .mvn/
 
-pushd shiro
+echo Clean up earlier build caches
+rm -Rf ~/.m2/build-cache/
 
-echo "Press enter for a first run"
-read var
+echo First run, populates cache
+read
+mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
-# need to use at least package!
-mvnd3 --file pom.xml package --projects :shiro-web --also-make -Dotel.traces.exporter=otlp
+echo Second run, leverages cache
+read
 
-echo ""
-echo "Press enter for a new run"
-echo ""
-read var
+mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
-mvnd3 --file pom.xml package --projects :shiro-web --also-make -Dotel.traces.exporter=otlp
+echo Edit a constant file in the JAX-RS configuration
+perl -i.bak -pe 's,"api","api/v1",g' web/rest/src/main/java/de/bmarwell/snailspace/demo4/app/web/rest/WebApplication.java
+read
 
-echo ""
-read var
-
-echo ""
-echo "Now edit the file ./shiro/web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java"
-echo ""
-perl -i.bak -pe 's,null/empty,null or empty,g' "./web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java"
-rm -f "./web/src/main/java/org/apache/shiro/web/servlet/SimpleCookie.java.bak"
-echo ""
-read var
-
-mvnd3 --file pom.xml package --projects :shiro-web --also-make -Dotel.traces.exporter=otlp
+mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
 popd

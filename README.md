@@ -18,3 +18,6 @@ The scripts assume that an environment variable `JAVA_HOME` exists and points to
 ## Running the demos
 
 To play a particular demo, use the `demo-<n>-<name>.sh` script.
+
+Alternatively, in most cases, running `mvn verify` (or `mvnd verify`) is enough.
+To play with parallel tests, activate the Maven profile _parallel-tests_: `-P parallel-tests`.

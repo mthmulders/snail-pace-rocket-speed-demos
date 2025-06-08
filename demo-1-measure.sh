@@ -8,13 +8,11 @@ set -euox pipefail
 echo Navigate to http://localhost:16686/
 read
 
-cp demo-1-resources/extensions.xml shiro/.mvn/
+pushd demo-resources/app-simple
+cp ../../demo-1-resources/extensions.xml .mvn/
+read
 
-pushd shiro
-read var
-
-mvn3 --file pom.xml -Dotel.traces.exporter=otlp verify --projects :shiro-core --also-make
-
+mvn3 --file pom.xml -Dotel.traces.exporter=otlp verify
 rm .mvn/extensions.xml
 
 popd

@@ -5,23 +5,16 @@ IFS=$'\n\t'
 
 set -euox pipefail
 
-cp demo-3-resources/extensions.xml shiro/.mvn/
+pushd demo-resources/app-simple
+# Maven Daemon and the OpenTelemetry extension don't work well together (yet)
+# cp ../../demo-3-resources/extensions.xml .mvn/
 
-pushd shiro
-
-echo 
 echo Clean up earlier builds
-echo 
-read var
-mvnd3 clean --projects :shiro-core --also-make
+read
+mvn3 clean --quiet
 
+echo Perform a build using Maven Daemon
+read
+mvnd3 verify
 
-
-echo 
-echo Perform a build using Maven Daemon 3
-echo 
-read var
-# otel doesnt work nicely with mvnd
-# -Dotel.traces.exporter=otlp
-export OTEL_METRICS_EXPORTER=none
-mvnd3 verify --projects :shiro-core --also-make
+popd
