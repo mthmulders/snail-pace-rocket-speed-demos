@@ -1,6 +1,3 @@
-[submodule "shiro"]
-	path = shiro
-	url = https://github.com/apache/shiro.git
 [submodule "demo-resources"]
 	path = demo-resources
 	url = https://github.com/bmarwell/snail2rocket-feed-the-daemon-demo.git
