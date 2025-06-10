@@ -5,10 +5,14 @@ IFS=$'\n\t'
 
 set -euox pipefail
 
+pushd demo-resources/app-simple
+
+echo Clean up earlier builds
+read
+mvn3 --file pom.xml clean --quiet
+
 echo Navigate to http://localhost:16686/
 read
-
-pushd demo-resources/app-simple
 cp ../../demo-1-resources/extensions.xml .mvn/
 read
 
