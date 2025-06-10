@@ -11,7 +11,7 @@ pushd demo-resources/app-simple
 
 echo Clean up earlier builds
 read
-mvn3 clean --quiet
+mvnd3 clean --quiet
 
 echo Perform a build using Maven Daemon
 read
