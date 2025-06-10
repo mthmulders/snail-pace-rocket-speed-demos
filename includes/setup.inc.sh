@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 CWD=$(pwd)
-MAVEN_3_VERSION="3.9.10"
+MAVEN_3_VERSION="3.9.9"
 # Yes, rc-3 is already available, but it has a few bugs that would be annoying in the demos.
 MAVEN_4_VERSION="4.0.0-rc-2"
 MVND_VERSION="1.0.2"
@@ -28,7 +28,7 @@ else
   __debug "Apache Maven $MAVEN_3_VERSION not found at $CWD/.downloads/apache-maven-$MAVEN_3_VERSION/bin/mvn"
   pushd "$CWD/.downloads" || exit 1
   __debug "Downloading Apache Maven $MAVEN_3_VERSION"
-  curl -L -O https://dlcdn.apache.org/maven/maven-3/$MAVEN_3_VERSION/binaries/apache-maven-$MAVEN_3_VERSION-bin.tar.gz
+  curl -L -O https://archive.apache.org/dist/maven/maven-3/$MAVEN_3_VERSION/binaries/apache-maven-$MAVEN_3_VERSION-bin.tar.gz
   tar -xzf apache-maven-$MAVEN_3_VERSION-bin.tar.gz
   rm apache-maven-$MAVEN_3_VERSION-bin.tar.gz
   popd
