@@ -26,4 +26,7 @@ read
 
 mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
+git restore app-simple/web/rest/src/main/java/de/bmarwell/snailspace/demo4/app/web/rest/WebApplication.java
+git restore app-simple/.mvn/extensions.xml
+
 popd
