@@ -19,6 +19,7 @@ else
     __debug "Jaeger is not running. Starting Jaeger..."
     pushd demos
     docker-compose up -d jaeger
+    popd
 fi
 
 # See if Apache Maven 3.x is already downloaded
