@@ -15,6 +15,13 @@ This repository contains all the demo's for "Accelerating Maven Builds: From Sna
 Make sure to have a Java 21 runtime installed and ready for use.
 The scripts assume that an environment variable `JAVA_HOME` exists and points to the installation directory of a Java 21 runtime.
 
+After cloning this repository, be sure to fetch the example project by running
+
+```bash
+git submodule init
+git submodule update
+```
+
 ## Running the demos
 
 To play a particular demo, use the `demo-<n>-<name>.sh` script.
