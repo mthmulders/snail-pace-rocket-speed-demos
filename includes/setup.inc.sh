@@ -4,7 +4,7 @@ CWD=$(pwd)
 MAVEN_3_VERSION="3.9.9"
 # Yes, rc-3 is already available, but it has a few bugs that would be annoying in the demos.
 MAVEN_4_VERSION="4.0.0-rc-2"
-MVND_VERSION="1.0.2"
+MVND_VERSION="1.0.3"
 
 mkdir -p $CWD/.downloads
 
