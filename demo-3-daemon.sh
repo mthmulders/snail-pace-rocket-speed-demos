@@ -15,6 +15,6 @@ mvnd3 clean --quiet
 
 echo Perform a build using Maven Daemon
 read
-mvnd3 verify
+mvnd3 verify -Dsmartbuilder.profiling=true
 
 popd
