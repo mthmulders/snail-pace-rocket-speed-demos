@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 CWD=$(pwd)
-MAVEN_3_VERSION="3.9.12"
+MAVEN_3_VERSION="3.9.13"
 MAVEN_4_VERSION="4.0.0-rc-5"
 MVND_VERSION="1.0.3"
 
