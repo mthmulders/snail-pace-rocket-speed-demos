@@ -8,7 +8,6 @@ set -euox pipefail
 pushd demo-resources/app-simple
 
 echo Clean up earlier builds
-read
 mvn3 clean --quiet
 
 echo
