@@ -12,6 +12,7 @@ read
 mvn3 --file pom.xml clean --quiet
 
 echo Navigate to http://localhost:16686/
+echo "mvn -Dotel.traces.exporter=otlp verify"
 read
 
 mvn3 --file pom.xml -Dotel.traces.exporter=otlp verify
