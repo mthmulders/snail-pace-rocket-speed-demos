@@ -12,10 +12,12 @@ echo Clean up earlier build caches
 rm -Rf ~/.m2/build-cache/
 
 echo First run, populates cache
+echo "mvn verify"
 read
 mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
 echo Second run, leverages cache
+echo "mvn verify"
 read
 
 mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp

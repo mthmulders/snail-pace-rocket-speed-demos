@@ -14,6 +14,7 @@ read
 mvnd3 clean --quiet
 
 echo Perform a build using Maven Daemon
+echo "mvnd verify -Dsmartbuilder.profiling=true"
 read
 mvnd3 verify -Dsmartbuilder.profiling=true
 
