@@ -8,7 +8,6 @@ set -euo pipefail
 pushd demo-resources/app-simple
 
 echo Clean up earlier builds
-read
 mvn3 --file pom.xml clean --quiet
 
 echo Navigate to http://localhost:16686/
