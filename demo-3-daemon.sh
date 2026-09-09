@@ -21,6 +21,7 @@ read
 echo Perform a build using Maven Daemon
 echo "$ mvnd verify -Dsmartbuilder.profiling=true"
 read
+# --activate-profiles parallel-tests
 mvnd3 verify -Dsmartbuilder.profiling=true
 
 popd
