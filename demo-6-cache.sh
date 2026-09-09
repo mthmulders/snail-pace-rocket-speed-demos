@@ -10,6 +10,7 @@ cp ../../demo-6-resources/extensions.xml .mvn/
 
 echo Clean up earlier build caches
 rm -Rf ~/.m2/build-cache/
+clear
 
 echo First run, populates cache
 echo "$ mvn verify"
@@ -26,6 +27,9 @@ echo Change a value in the JAX-RS configuration class
 perl -i.bak -pe 's,"api","api/v1",g' web/rest/src/main/java/de/bmarwell/snailspace/demo4/app/web/rest/WebApplication.java
 read
 
+echo Build again
+echo $ "mvn verify"
+read
 mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
 git restore web/rest/src/main/java/de/bmarwell/snailspace/demo4/app/web/rest/WebApplication.java
