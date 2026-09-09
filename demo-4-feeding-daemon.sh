@@ -11,6 +11,7 @@ pushd demo-resources/app-more-modules
 
 echo Clean up earlier builds
 mvnd3 clean --quiet
+clear
 
 echo Perform a build using Maven Daemon
 echo "$ mvnd verify"

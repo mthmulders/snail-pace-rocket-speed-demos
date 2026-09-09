@@ -9,6 +9,7 @@ pushd demo-resources/app-simple
 
 echo Clean up earlier builds
 mvn3 clean --quiet
+clear
 
 echo
 echo
