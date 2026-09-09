@@ -3,7 +3,7 @@ IFS=$'\n\t'
 
 . ./includes/setup.inc.sh
 
-set -euox pipefail
+set -euo pipefail
 
 pushd demo-resources/app-simple
 
@@ -14,7 +14,7 @@ echo
 echo
 echo "now running mvn verify with parallel tests enabled"
 echo
-echo "mvn verify --activate-profiles parallel-tests"
+echo "$ mvn verify --activate-profiles parallel-tests"
 echo
 
 read

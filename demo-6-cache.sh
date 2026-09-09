@@ -3,7 +3,7 @@ IFS=$'\n\t'
 
 . ./includes/setup.inc.sh
 
-set -euox pipefail
+set -euo pipefail
 
 pushd demo-resources/app-simple
 cp ../../demo-6-resources/extensions.xml .mvn/
@@ -12,12 +12,12 @@ echo Clean up earlier build caches
 rm -Rf ~/.m2/build-cache/
 
 echo First run, populates cache
-echo "mvn verify"
+echo "$ mvn verify"
 read
 mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
 echo Second run, leverages cache
-echo "mvn verify"
+echo $ "mvn verify"
 read
 
 mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp

@@ -3,7 +3,7 @@ IFS=$'\n\t'
 
 . ./includes/setup.inc.sh
 
-set -euox pipefail
+set -euo pipefail
 
 pushd demo-resources/app-more-modules
 # Maven Daemon and the OpenTelemetry extension don't work well together (yet)
@@ -14,7 +14,7 @@ read
 mvnd3 clean --quiet
 
 echo Perform a build using Maven Daemon
-echo "mvnd verify"
+echo "$ mvnd verify"
 read 
 mvnd3 verify
 
