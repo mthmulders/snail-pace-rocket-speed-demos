@@ -3,7 +3,7 @@
 CWD=$(pwd)
 MAVEN_3_VERSION="3.9.16"
 MAVEN_4_VERSION="4.0.0-rc-5"
-MVND_VERSION="1.0.3"
+MVND_VERSION="1.0.6"
 
 mkdir -p $CWD/.downloads
 
