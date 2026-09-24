@@ -16,7 +16,6 @@ clear
 echo Inspect status of Maven daemon
 echo "$ mvnd --status"
 mvnd3 --status
-read
 
 echo Perform a build using Maven Daemon
 echo "$ mvnd verify -Dsmartbuilder.profiling=true"

@@ -25,7 +25,6 @@ mvn3 --file pom.xml verify -Dotel.traces.exporter=otlp
 
 echo Change a value in the JAX-RS configuration class
 perl -i.bak -pe 's,"api","api/v1",g' web/rest/src/main/java/de/bmarwell/snailspace/demo4/app/web/rest/WebApplication.java
-read
 
 echo Build again
 echo $ "mvn verify"
